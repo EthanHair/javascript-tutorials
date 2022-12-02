@@ -18,6 +18,14 @@ body {
     flex-direction: column;
 }
 
+.j-start {
+    justify-content: flex-start;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
 .center {
     justify-content: center;
     align-items: center;
@@ -26,4 +34,12 @@ body {
 
 pre {
     text-align: left;
+}
+
+.gap-24 {
+    gap: 24px;
+}
+
+.gap-64 {
+    gap: 64px;
 }

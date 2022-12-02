@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Functions</title>
+    <link href="../site.css" rel="stylesheet">
+</head>
+<style>
+    .func {
+        border: thin solid black;
+        border-radius: 16px;
+        padding: 16px;
+        padding-left: 24px;
+        align-items: center;
+    }
+
+    .output {
+        font-size: xx-large;
+        height: 128px;
+        width: 128px;
+    }
+
+    .input {
+        width: 64px;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Random Functions</h1>
+    <p>
+        These are some useful functions I have found or created
+    </p>
+    <div class="d-flex column j-start gap-24">
+        <div class="d-flex row j-start func gap-64">
+            <pre>
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+            </pre>
+            <div class="d-flex row space-evenly">
+                <table>
+                    <tr>
+                        <td>min:</td><td><input id="rnd-min" type="number" class="input"></td>
+                    </tr>
+                    <tr>
+                        <td>max:</td><td><input id="rnd-max" type="number" class="input"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input value="Calculate" type="button" onclick="CalcRnd()"></td>
+                    </tr>
+                </table>
+                <div id="rnd-output" class="output d-flex center"></div>
+            </div>
+        </div>
+        <div class="d-flex row j-start func gap-64">
+            <pre>
+function roundDownToNearestMult(number, divisor) {
+    let quo = Math.floor(number/divisor);
+    let multipleOfDivisor = divisor * quo;
+    return multipleOfDivisor;
+}
+            </pre>
+            <div class="d-flex row space-evenly">
+                <table>
+                    <tr>
+                        <td>number:</td><td><input id="mult-num" type="number" class="input"></td>
+                    </tr>
+                    <tr>
+                        <td>divisor:</td><td><input id="mult-div" type="number" class="input"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input value="Calculate" type="button" onclick="CalcMult()"></td>
+                    </tr>
+                </table>
+                <div id="mult-output" class="output d-flex center"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const rndMin = document.getElementById("rnd-min");
+    const rndMax = document.getElementById("rnd-max");
+    const rndOutput = document.getElementById("rnd-output");
+    const multNumber = document.getElementById("mult-num");
+    const multDivisor = document.getElementById("mult-div");
+    const multOutput = document.getElementById("mult-output");
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
+    }
+
+    function roundDownToNearestMult(number, divisor) {
+        let quo = Math.floor(number/divisor);
+        let multipleOfDivisor = divisor * quo;
+        return multipleOfDivisor;
+    }
+
+    function CalcRnd() {
+        let min = parseInt(rndMin.value);
+        let max = parseInt(rndMax.value);
+
+        let rnd = getRndInteger(min, max);
+
+        rndOutput.innerHTML = rnd;
+    }
+
+    function CalcMult() {
+        let num = parseInt(multNumber.value);
+        let div = parseInt(multDivisor.value);
+
+        let mult = roundDownToNearestMult(num, div);
+
+        multOutput.innerHTML = mult;
+    }
+</script>
+</html>
