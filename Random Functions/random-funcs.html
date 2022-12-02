@@ -33,7 +33,7 @@
         These are some useful functions I have found or created
     </p>
     <div class="d-flex column j-start gap-24">
-        <div class="d-flex row j-start func gap-64">
+        <div class="d-flex row space-between func gap-64">
             <pre>
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
@@ -54,7 +54,7 @@ function getRndInteger(min, max) {
                 <div id="rnd-output" class="output d-flex center"></div>
             </div>
         </div>
-        <div class="d-flex row j-start func gap-64">
+        <div class="d-flex row space-between func gap-64">
             <pre>
 function roundDownToNearestMult(number, divisor) {
     let quo = Math.floor(number/divisor);
@@ -77,6 +77,28 @@ function roundDownToNearestMult(number, divisor) {
                 <div id="mult-output" class="output d-flex center"></div>
             </div>
         </div>
+        <div class="d-flex row space-between func gap-64">
+            <pre>
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+            </pre>
+            <div class="d-flex row space-evenly">
+                <table>
+                    <tr>
+                        <td>num:</td><td><input id="clamp-num" type="number" class="input"></td>
+                    </tr>
+                    <tr>
+                        <td>min:</td><td><input id="clamp-min" type="number" class="input"></td>
+                    </tr>
+                    <tr>
+                        <td>max:</td><td><input id="clamp-max" type="number" class="input"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input value="Calculate" type="button" onclick="CalcClamp()"></td>
+                    </tr>
+                </table>
+                <div id="clamp-output" class="output d-flex center"></div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
@@ -86,6 +108,10 @@ function roundDownToNearestMult(number, divisor) {
     const multNumber = document.getElementById("mult-num");
     const multDivisor = document.getElementById("mult-div");
     const multOutput = document.getElementById("mult-output");
+    const clampNum = document.getElementById("clamp-num");
+    const clampMin = document.getElementById("clamp-min");
+    const clampMax = document.getElementById("clamp-max");
+    const clampOutput = document.getElementById("clamp-output");
 
     function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min) ) + min;
@@ -96,6 +122,8 @@ function roundDownToNearestMult(number, divisor) {
         let multipleOfDivisor = divisor * quo;
         return multipleOfDivisor;
     }
+
+    const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
     function CalcRnd() {
         let min = parseInt(rndMin.value);
@@ -113,6 +141,16 @@ function roundDownToNearestMult(number, divisor) {
         let mult = roundDownToNearestMult(num, div);
 
         multOutput.innerHTML = mult;
+    }
+
+    function CalcClamp() {
+        let min = parseInt(clampMin.value);
+        let max = parseInt(clampMax.value);
+        let num = parseInt(clampNum.value);
+
+        let result = clamp(num, min, max);
+
+        clampOutput.innerHTML = result;
     }
 </script>
 </html>
