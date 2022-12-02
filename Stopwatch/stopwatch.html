@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link href="../site.css" rel="stylesheet">
+</head>
+<style>
+    .stopwatch {
+        border: thin solid black;
+        border-radius: 16px;
+        background-color: #202020;
+        color: white;
+        font-size: xx-large;
+        padding: 24px;
+    }
+
+    .button {
+        width: 100px;
+        height: 30px;
+        border-radius: 6px;
+        background-color: #202020;
+        color: white;
+        border: 2px solid white;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .button:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h1>JavaScript Stopwatch</h1>
+    <p>This is a stopwatch implemented using JavaScript</p>
+    <br>
+    <div class="stopwatch">
+        <div id="stopwatch">00:00:00</div>
+        <div class="buttons">
+            <input type="button" class="button" value="Start" onclick="Start()" id="start-btn">
+            <input type="button" class="button" value="Stop" onclick="Stop()">
+            <input type="button" class="button" value="Reset" onclick="Reset()">
+        </div>
+    </div>
+    <p>
+        This is the code used to run the stopwatch
+    </p>
+    <div class="d-flex row center">
+        <pre>
+            let stopwatch = null;
+            let min = 0;
+            let sec = 0;
+            let ms = 0;
+            
+            function Start() {
+                startButton.disabled = true;
+        
+                stopwatch = setInterval(() => {
+                    ms++;
+                    if (ms == 100) {
+                        sec++;
+                        ms = 0;
+                    }
+                    if (sec == 60) {
+                        min++;
+                        sec = 0;
+                    }
+        
+                    stopwatchElement.innerHTML = (min < 10 ? `0${min}` : min) + ':' + 
+                                                 (sec < 10 ? `0${sec}` : sec) + ':' + 
+                                                 (ms  < 10 ? `0${ms}` : ms);
+                }, 10)
+            }
+        </pre>
+        <pre>
+            function Stop() {
+                startButton.disabled = false;
+                
+                clearTimeout(stopwatch);
+            }
+        
+            function Reset() {
+                startButton.disabled = false;
+        
+                min = 0;
+                sec = 0;
+                ms = 0;
+                clearTimeout(stopwatch);
+                stopwatchElement.innerHTML = "00:00:00";
+            }
+        </pre>
+    </div>
+</body>
+<script>
+    const stopwatchElement = document.getElementById("stopwatch");
+    const startButton = document.getElementById("start-btn");
+    let stopwatch = null;
+    let min = 0;
+    let sec = 0;
+    let ms = 0;
+
+    function Start() {
+        startButton.disabled = true;
+
+        stopwatch = setInterval(() => {
+            ms++;
+            if (ms == 100) {
+                sec++;
+                ms = 0;
+            }
+            if (sec == 60) {
+                min++;
+                sec = 0;
+            }
+
+            stopwatchElement.innerHTML = (min < 10 ? `0${min}` : min) + ':' + 
+                                         (sec < 10 ? `0${sec}` : sec) + ':' + 
+                                         (ms < 10 ? `0${ms}` : ms);
+        }, 10)
+    }
+
+    function Stop() {
+        startButton.disabled = false;
+        
+        clearTimeout(stopwatch);
+    }
+
+    function Reset() {
+        startButton.disabled = false;
+
+        min = 0;
+        sec = 0;
+        ms = 0;
+        clearTimeout(stopwatch);
+        stopwatchElement.innerHTML = "00:00:00";
+    }
+</script>
+</html>

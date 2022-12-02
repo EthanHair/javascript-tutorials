@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spritesheets</title>
+    <link href="../site.css" rel="stylesheet">
+</head>
+<style>
+    .mario {
+        height: 512px;
+        width: 512px;
+        margin: 24px;
+        background-image: url(Mario.png);
+        background-position: 0 0;
+    }
+
+    .jump {
+        background-position: 0 512px;
+    }
+</style>
+<body>
+    <div class="d-flex column center">
+        <h1>CSS Spritesheets</h1>
+        <p>
+            Click on Mario to make him jump. Mario is a div set to 512px x 512px with a background image spritesheet that is 512px x 1024px. 
+            This is using an onclick method to add/remove the class <code>jump</code>.
+        </p>
+    </div>
+    <div class="d-flex row center">
+        <div id="mario" class="mario" onclick="ToggleMario()"></div>
+    </div>
+    <div class="d-flex row center">
+        <pre>
+            const mario = document.getElementById("mario");
+    
+            function ToggleMario() {
+                mario.classList.toggle("jump");
+            }
+
+            function MakeMarioJump() {
+                if (mario.classList.contains("jump")) {
+                    ToggleMario();
+                }
+        
+                ToggleMario();
+        
+                setTimeout(ToggleMario, 500);
+            }
+        </pre>
+        <pre>
+            .mario {
+                height: 512px;
+                width: 512px;
+                margin: 24px;
+                background-image: url(Mario.png);
+                background-position: 0 0;
+            }
+        
+            .jump {
+                background-position: 0 512px;
+            }
+        </pre>
+    </div>
+    <div class="d-flex column center">
+        <p>
+            You can use <code>setTimeout({your function}, {time in ms})</code> to cause a delay before a function is called. When you click 
+            the button below it calls the <code>MakeMarioJump</code> function and make him toggle to the jump position and after 500ms call the 
+            toggle method again to make him return to standing.
+        </p>
+        <input type="button" value="Click to make Mario jump and return to standing" onclick="MakeMarioJump()">
+    </div>
+</body>
+<script>
+    const mario = document.getElementById("mario");
+
+    function ToggleMario() {
+        mario.classList.toggle("jump");
+    }
+
+    function MakeMarioJump() {
+        if (mario.classList.contains("jump")) {
+            ToggleMario();
+        }
+
+        ToggleMario();
+
+        setTimeout(ToggleMario, 500);
+    }
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Down Event</title>
+    <link href="../site.css" rel="stylesheet">
+</head>
+<style>
+    #key-spot {
+        padding: 8px;
+        font-size: 128px;
+        border: thick solid black;
+        min-height: 128px;
+        min-width: 128px;
+    }
+</style>
+<body>
+    <h1>Key Down Event</h1>
+    <p>
+        Press any key to see it appear in the box below.
+    </p>
+    <div id="key-spot"></div>
+    <p>
+        The code below is how the key down event is being listened to and the key is being put into the box.
+    </p>
+    <pre>
+        const keySpot = document.getElementById("key-spot");
+
+        window.addEventListener("keydown", x => {
+            keySpot.innerHTML = x.key;
+        });
+    </pre>
+</body>
+<script>
+    const keySpot = document.getElementById("key-spot");
+
+    window.addEventListener("keydown", x => {
+        keySpot.innerHTML = x.key;
+    });
+</script>
+</html>
