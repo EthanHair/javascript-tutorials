@@ -11,26 +11,26 @@
     .stopwatch {
         border: thin solid black;
         border-radius: 16px;
-        background-color: #202020;
-        color: white;
+        background-color: white;
+        color: black;
         font-size: xx-large;
         padding: 24px;
     }
 
-    .button {
+    .stopwatch-button {
         width: 100px;
         height: 30px;
         border-radius: 6px;
-        background-color: #202020;
-        color: white;
-        border: 2px solid white;
+        background-color: white;
+        color: black;
+        border: 2px solid black;
         margin-left: 5px;
         margin-right: 5px;
     }
     
-    .button:hover {
-        background-color: white;
-        color: black;
+    .stopwatch-button:hover {
+        background-color: #202020;
+        color: white;
         cursor: pointer;
     }
 </style>
@@ -41,9 +41,9 @@
     <div class="stopwatch">
         <div id="stopwatch">00:00:00</div>
         <div class="buttons">
-            <input type="button" class="button" value="Start" onclick="Start()" id="start-btn">
-            <input type="button" class="button" value="Stop" onclick="Stop()">
-            <input type="button" class="button" value="Reset" onclick="Reset()">
+            <input type="button" class="stopwatch-button" value="Start" onclick="Start()" id="start-btn">
+            <input type="button" class="stopwatch-button" value="Stop" onclick="Stop()">
+            <input type="button" class="stopwatch-button" value="Reset" onclick="Reset()">
         </div>
     </div>
     <p>

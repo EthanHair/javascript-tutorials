@@ -9,7 +9,7 @@
 </head>
 <style>
     .func {
-        border: thin solid black;
+        border: thin solid white;
         border-radius: 16px;
         padding: 16px;
         padding-left: 24px;
@@ -48,7 +48,7 @@ function getRndInteger(min, max) {
                         <td>max:</td><td><input id="rnd-max" type="number" class="input"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input value="Calculate" type="button" onclick="CalcRnd()"></td>
+                        <td colspan="2"><input value="Calculate" type="button" class="button" onclick="CalcRnd()"></td>
                     </tr>
                 </table>
                 <div id="rnd-output" class="output d-flex center"></div>
@@ -71,7 +71,7 @@ function roundDownToNearestMult(number, divisor) {
                         <td>divisor:</td><td><input id="mult-div" type="number" class="input"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input value="Calculate" type="button" onclick="CalcMult()"></td>
+                        <td colspan="2"><input value="Calculate" type="button" class="button" onclick="CalcMult()"></td>
                     </tr>
                 </table>
                 <div id="mult-output" class="output d-flex center"></div>
@@ -93,7 +93,7 @@ const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
                         <td>max:</td><td><input id="clamp-max" type="number" class="input"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input value="Calculate" type="button" onclick="CalcClamp()"></td>
+                        <td colspan="2"><input value="Calculate" type="button" class="button" onclick="CalcClamp()"></td>
                     </tr>
                 </table>
                 <div id="clamp-output" class="output d-flex center"></div>

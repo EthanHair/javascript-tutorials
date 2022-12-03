@@ -4,6 +4,9 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    
+    background-color: #202020;
+    color: white;
 }
 
 .d-flex {
@@ -46,4 +49,19 @@ pre {
 
 .gap-64 {
     gap: 64px;
+}
+
+.button {
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: #343434;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.button:hover {
+    transform: scale(1.05);
 }
